@@ -29,11 +29,12 @@
             %li= link_to 'Sign up', new_user_registration_path
         %ul.left
     - if notice
-      .alert-box.radius{"data-alert" => ""}
+      .alert-box{"data-alert" => ""}
         = notice
         %a.close{:href => "#"} &times;
     - if alert
-      .alert-box.alert.radius{"data-alert" => ""}
+      .alert-box.alert{"data-alert" => ""}
         = alert
         %a.close{:href => "#"} &times;
-    = yield
+    .wrapper
+      = yield

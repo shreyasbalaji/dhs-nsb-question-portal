@@ -1,0 +1,53 @@
+Plans:
+
+Question Model:
+:string subject (validate: limited to specific choices)
+
+:string toss_up_class [options: "MC", "FR"]
+:text toss_up_text
+:string toss_up_answer
+:decimal toss_up_difficulty (default: 5) (on a scale of 1-10)
+
+:string bonus_class [options: "MC", "FR"]
+:text bonus_text
+:string bonus_answer
+
+:text references
+
+:belongs_to :user, index: true
+:belongs_to qset, index:true
+:integer position // number in set
+
+:decimal overall_rating (default: 3) (on a scale of 1-5)
+:integer total_raters (default: 0)
+:boolean flagged (default: false)
+
+i.e. a user has_many :questions
+
+Comment Model:
+:text content
+belongs_to :question, index: true
+belongs_to :user
+
+Qset model
+:text description
+:string name
+has_many questions
+:decimal rating
+:integer total_raters (default: 0)
+
+Linkage model:
+belongs_to :question, :collection
+:integer position
+
+Qset model
+
+
+
+Question Text Format: For FR, just as is
+For MC, question body then for each choice, should be prefixed
+by a **WWW** **XXX** **YYY** **ZZZ** **END** before each corresponding answer choice,
+then when displaying should be parsed appropriately
+
+MC answer is one of ["W", "X", "Y", "Z"]
+FR answer is a short string

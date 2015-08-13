@@ -16,10 +16,9 @@
 
  */
 
-body {
+.wrapper {
   font-family: "Lato", "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
   width: 95%;
-  background: #f6f6f6;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1em;
