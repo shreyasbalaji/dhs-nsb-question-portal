@@ -19,5 +19,5 @@
         %td= link_to 'Destroy', question_set, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New Question set', new_question_set_path
+%form{method: 'get', action: new_question_set_path}
+  %button.button{type: 'submit'} New Question Set
