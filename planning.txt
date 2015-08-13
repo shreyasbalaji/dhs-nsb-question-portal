@@ -29,12 +29,13 @@ Comment Model:
 belongs_to :question, index: true
 belongs_to :user
 
-Qset model
+QuestionSet Model:
 :text description
 :string name
 has_many questions
 :decimal rating
-:integer total_raters (default: 0)
+:integer upvotes
+:integer downvotes
 
 Linkage model:
 belongs_to :question, :collection
