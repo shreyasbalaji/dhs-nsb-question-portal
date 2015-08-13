@@ -9,6 +9,7 @@
 
 # Ignore the default SQLite database.
 *.rbc
+/bin
 capybara-*.html
 .rspec
 /log
