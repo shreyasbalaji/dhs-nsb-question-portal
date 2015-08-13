@@ -1,0 +1,29 @@
+Set Up
+
+run rvm use ruby-2.2.2@aug15
+add foundation-rails ~> 5.5.2.1 to Gemfile
+bundle install
+run rails g foundation:install
+
+add haml-rails ~> 0.9 to Gemfile
+run bundle install
+
+# run one of two below
+run html2haml views/layouts/application.html.erb views/layouts/application.html.haml
+run rails generate haml:application_layout convert
+
+add devise ~> 3.5.2 to Gemfile
+run rails g devise:install
+run rails g devise:install
+
+set up flash with devise ( variables notice and alert )
+
+run rails g devise user
+add t:boolean :admin, default: false to user migration
+run rake db migrate
+
+
+
+
+restart server
+
