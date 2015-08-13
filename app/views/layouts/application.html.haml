@@ -10,4 +10,12 @@
     = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    - if notice
+      .alert-box.radius{"data-alert" => ""}
+        = notice
+        %a.close{:href => "#"} &times;
+    - if alert
+      .alert-box.alert.radius{"data-alert" => ""}
+        = alert
+        %a.close{:href => "#"} &times;
     = yield
