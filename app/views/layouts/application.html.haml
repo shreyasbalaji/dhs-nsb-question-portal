@@ -31,6 +31,7 @@
         %ul.left
           -if user_signed_in?
             %li= link_to 'Question Sets', question_sets_path
+            %li= link_to 'Public Sets', '/public_sets'
     - if notice
       .alert-box{"data-alert" => ""}
         = notice

@@ -5,7 +5,16 @@ class QuestionSetsController < ApplicationController
   # GET /question_sets.json
   def index
     authenticate_user!
-    @question_sets = current_user.question_sets.order("updated_at DESC").all
+    if (current_user.admin)
+      @question_sets = QuestionSet.order("updated_at DESC").all
+    else
+      @question_sets = current_user.question_sets.order("updated_at DESC").all
+    end
+  end
+
+  def public
+    authenticate_user!
+    @question_sets = QuestionSet.where(:public => true).order("updated_at DESC")
   end
 
   # GET /question_sets/1
@@ -29,7 +38,7 @@ class QuestionSetsController < ApplicationController
   def create
     authenticate_user!
     @question_set = current_user.question_sets.build(question_set_params)
-
+    
     respond_to do |format|
       if @question_set.save
         format.html { redirect_to @question_set, notice: 'Question set was successfully created.' }
@@ -45,6 +54,11 @@ class QuestionSetsController < ApplicationController
   # PATCH/PUT /question_sets/1.json
   def update
     authenticate_user!
+
+    if !current_user.admin && @question_set.user.email != current_user.email
+      redirect_to question_sets_url
+    end
+
     respond_to do |format|
       if @question_set.update(question_set_params)
         format.html { redirect_to @question_set, notice: 'Question set was successfully updated.' }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150813185741) do
+ActiveRecord::Schema.define(version: 20150813192250) do
 
   create_table "question_sets", force: :cascade do |t|
     t.string   "name"
@@ -23,6 +23,24 @@ ActiveRecord::Schema.define(version: 20150813185741) do
   end
 
   add_index "question_sets", ["user_id"], name: "index_question_sets_on_user_id"
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "subject"
+    t.string   "toss_up_class"
+    t.string   "bonus_class"
+    t.text     "toss_up_text"
+    t.text     "bonus_text"
+    t.string   "toss_up_answer"
+    t.string   "bonus_answer"
+    t.text     "references"
+    t.boolean  "flagged",         default: false
+    t.boolean  "randomize",       default: false
+    t.integer  "question_set_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "questions", ["question_set_id"], name: "index_questions_on_question_set_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",             null: false

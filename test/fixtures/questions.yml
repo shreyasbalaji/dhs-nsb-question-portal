@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subject: MyString
+  toss_up_class: MyString
+  bonus_class: MyString
+  toss_up_text: MyText
+  bonus_text: MyText
+  toss_up_answer: MyString
+  bonus_answer: MyString
+  references: MyText
+  flagged: false
+
+two:
+  subject: MyString
+  toss_up_class: MyString
+  bonus_class: MyString
+  toss_up_text: MyText
+  bonus_text: MyText
+  toss_up_answer: MyString
+  bonus_answer: MyString
+  references: MyText
+  flagged: false
