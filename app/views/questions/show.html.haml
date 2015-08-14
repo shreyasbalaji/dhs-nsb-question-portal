@@ -1,29 +1,106 @@
+%ul.breadcrumbs
+  %li= link_to 'Home', root_path
+  %li= link_to 'My Question Sets', question_sets_path
+  %li= link_to @question.question_set.name, @question.question_set
+  %li.current= link_to 'Question ' + @question.position.to_s, @question
+
+%ul.pagination
+  - @question_list.each do |q|
+    - if q.position == @question.position
+      %li.current= link_to q.position.to_s, q
+    - else
+      %li= link_to q.position.to_s, q
+
 %h1 
   = 'Question ' + @question.position.to_s
+%button#fixstuff{onclick: 'displayMCProperly()'} Fix Weirdness
 
-%h2 Toss Up
+%hr
+.row
+  .small-10.columns
+    %h2 Toss Up
+  .small-2.columns
+    %h2#tossUpCountdown.countdown 5
 %p
   %strong
     = @question.subject 
-  %em= toss_up_type @question
+  %em#tossUpCategory= toss_up_type @question
 
-%p= @question.toss_up_text
+%p#tossUpText= @question.toss_up_text
+#tossUpMC.unactivated
+  #row
+    .small-1.columns
+      %p.letter.right W
+    .small-11.columns
+      %p#tc1
+  #row
+    .small-1.columns
+      %p.letter.right X
+    .small-11.columns
+      %p#tc2
+  #row
+    .small-1.columns
+      %p.letter.right Y
+    .small-11.columns
+      %p#tc3
+  #row
+    .small-1.columns
+      %p.letter.right Z
+    .small-11.columns
+      %p#tc4
+
 %h4 Answer
-%p= @question.toss_up_answer
+%p#tossUpAnswer= @question.toss_up_answer
 %hr
 
-%h2 Bonus
+.row
+  .small-10.columns
+    %h2 Bonus
+  .small-2.columns
+    %h2#bonusCountdown.countdown 20
 %p
-  %strong
+  %strong 
     = @question.subject 
-  %em= bonus_type @question
+  %em#bonusCategory= bonus_type @question
 
-%p= @question.bonus_text
+%p#bonusText= @question.bonus_text
+#bonusMC.unactivated
+  #row
+    .small-1.columns
+      %p.letter.right W
+    .small-11.columns
+      %p#bc1
+  #row
+    .small-1.columns
+      %p.letter.right X
+    .small-11.columns
+      %p#bc2
+  #row
+    .small-1.columns
+      %p.letter.right Y
+    .small-11.columns
+      %p#bc3
+  #row
+    .small-1.columns
+      %p.letter.right Z
+    .small-11.columns
+      %p#bc4
+
 %h4 Answer
-%p= @question.bonus_answer
+%p#bonusAnswer= @question.bonus_answer
 %hr
 %h2 References
 %p= @question.references
+%hr
+.row
+  .small-2.columns
+  .small-4.columns
+    %form{method: 'get', action: edit_question_path(@question)}
+      %button.button.small{type: 'submit'} Edit This Question
+  .small-4.columns
+    %form{method: 'get', action: new_question_set_question_path(@question.question_set)}
+      %button.button.small{type:'submit'} New Question
+  .small-2.columns
 
 
 

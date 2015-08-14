@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
 
   def show
     authenticate_user!
+    @question_list = @question.question_set.questions.order('position ASC')
   end
 
   def new

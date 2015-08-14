@@ -7,7 +7,7 @@ gem 'rails', '4.2.3'
 gem 'foundation-rails', '~> 5.5.2.1'
 gem 'haml-rails', '~> 0.9'
 gem 'devise', '~> 3.5.2'
-
+gem 'jquery-turbolinks'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets

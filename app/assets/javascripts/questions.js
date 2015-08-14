@@ -39,21 +39,22 @@ function submitQuestionHandler(event) {
 function parseMCText(text) {
   var resultant = [];
   var ind1 = text.indexOf("**WWW**");
-  resultant.append(text.slice(
+  resultant.push(text.slice(
         0, text.indexOf("**WWW**")
         ));
-  resultant.append(text.slice(
+  resultant.push(text.slice(
         text.indexOf("**WWW**") + 7, text.indexOf("**XXX**")
         ));
-  resultant.append(text.slice(
+  resultant.push(text.slice(
         text.indexOf("**XXX**") + 7, text.indexOf("**YYY**")
         ));
-  resultant.append(text.slice(
+  resultant.push(text.slice(
         text.indexOf("**YYY**") + 7, text.indexOf("**ZZZ**")
         ));
-  resultant.append(text.slice(
+  resultant.push(text.slice(
         text.indexOf("**ZZZ**") + 7
         ));
+  return resultant;
 }
 
 function tClassChangeHandler() {
@@ -115,6 +116,79 @@ function populateFields() {
   }
 }
 
+function displayMCProperly() {
+  if ($('#tossUpCategory').text() == "Multiple Choice") {
+    var sometext = $('#tossUpText').text();
+    var splitUp = parseMCText(sometext);
+    $('#tossUpText').text(splitUp[0]);
+    $('#tc1').text(splitUp[1]);
+    $('#tc2').text(splitUp[2]);
+    $('#tc3').text(splitUp[3]);
+    $('#tc4').text(splitUp[4]);
+    $('#tossUpMC').removeClass('unactivated');
+    tossUpSolution = $('#tossUpAnswer').text();
+    switch(tossUpSolution) {
+      case 'W': 
+        $('#tossUpAnswer').text(tossUpSolution + ": " + splitUp[1]);
+        break;
+      case 'X': 
+        $('#tossUpAnswer').text(tossUpSolution + ": " + splitUp[2]);
+        break;
+      case 'Y': 
+        $('#tossUpAnswer').text(tossUpSolution + ": " + splitUp[3]);
+        break;
+      case 'Z': 
+        $('#tossUpAnswer').text(tossUpSolution + ": " + splitUp[4]);
+        break;
+    }
+  }
+  if ($('#bonusCategory').text() == "Multiple Choice") {
+    var sometext = $('#bonusText').text();
+    var splitUp = parseMCText(sometext);
+    $('#bonusText').text(splitUp[0]);
+    $('#bc1').text(splitUp[1]);
+    $('#bc2').text(splitUp[2]);
+    $('#bc3').text(splitUp[3]);
+    $('#bc4').text(splitUp[4]);
+    $('#bonusMC').removeClass('unactivated');
+    bonusSolution = $('#bonusAnswer').text();
+    switch(bonusSolution) {
+      case 'W': 
+        $('#bonusAnswer').text(bonusSolution + ": " + splitUp[1]);
+        break;
+      case 'X': 
+        $('#bonusAnswer').text(bonusSolution + ": " + splitUp[2]);
+        break;
+      case 'Y': 
+        $('#bonusAnswer').text(bonusSolution + ": " + splitUp[3]);
+        break;
+      case 'Z': 
+        $('#bonusAnswer').text(bonusSolution + ": " + splitUp[4]);
+        break;
+    }
+  }
+  $('#fixstuff').remove();
+}
+
+function startTossUpTimer() {
+  var left = parseInt($("#tossUpCountdown").text());
+  setInterval(function() {
+    left--;
+    if (left < 0) { left = 0; }
+    $('#tossUpCountdown').text(left);
+  }, 1000);
+}
+
+function startBonusTimer() {
+  var timeleft = parseInt($("#bonusCountdown").text());
+  setInterval(function() {
+    timeleft--;
+    if (timeleft < 0) { timeleft = 0; }
+    $('#bonusCountdown').text(timeleft);
+  }, 1000);
+}
+
+
 $(document).ready(function() {
   $("#new_question").submit(submitQuestionHandler);
   $("form.edit_question").submit(submitQuestionHandler);
@@ -123,5 +197,10 @@ $(document).ready(function() {
   tClassChangeHandler();
   bClassChangeHandler();
   populateFields();
+  displayMCProperly();
+  if ($('#tossUpCountdown').length) {
+    $('#tossUpCountdown').click(startTossUpTimer);
+    $('#bonusCountdown').click(startBonusTimer);
+  }
 });
 

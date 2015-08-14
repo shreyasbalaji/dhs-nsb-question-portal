@@ -1,5 +1,6 @@
 Plans:
 
+test admin: admin@admin.com, whichaneesh
 Question Model:
 :string subject (validate: limited to specific choices)
 
@@ -21,6 +22,7 @@ Question Model:
 :decimal overall_rating (default: 3) (on a scale of 1-5)
 :integer total_raters (default: 0)
 :boolean flagged (default: false)
+
 
 i.e. a user has_many :questions
 

@@ -29,6 +29,14 @@ div.unactivated, .unactivated {
   display: none
 }
 
-a {
-  color: #3ca2c9;
+h2 {
+  color: #4965a1;
+}
+
+.wrapper a {
+  color: #43a0b6;
+}
+
+.wrapper a:hover{
+  background-color: initial;
 }

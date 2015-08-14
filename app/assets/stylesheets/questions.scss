@@ -7,3 +7,21 @@
   font-weight: bold;
   color: #2e3486;
 }
+
+p.letter {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+h2.countdown {
+  color: #c93131;
+  border: 2px solid #c93131;
+  border-radius: 12px;
+  background: #eee;
+  margin: auto;
+  text-align: center;
+}
+
+h2.countdown:hover {
+  background: #fee;
+}
