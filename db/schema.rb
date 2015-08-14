@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150813192250) do
+ActiveRecord::Schema.define(version: 20150814015552) do
 
   create_table "question_sets", force: :cascade do |t|
     t.string   "name"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20150813192250) do
     t.integer  "question_set_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.integer  "position"
   end
 
   add_index "questions", ["question_set_id"], name: "index_questions_on_question_set_id"

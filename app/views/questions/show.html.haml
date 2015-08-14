@@ -1,0 +1,30 @@
+%h1 
+  = 'Question ' + @question.position.to_s
+
+%h2 Toss Up
+%p
+  %strong
+    = @question.subject 
+  %em= toss_up_type @question
+
+%p= @question.toss_up_text
+%h4 Answer
+%p= @question.toss_up_answer
+%hr
+
+%h2 Bonus
+%p
+  %strong
+    = @question.subject 
+  %em= bonus_type @question
+
+%p= @question.bonus_text
+%h4 Answer
+%p= @question.bonus_answer
+%hr
+%h2 References
+%p= @question.references
+
+
+
+  

@@ -24,3 +24,11 @@
   margin-top: 1em;
   margin-bottom: 2em;
 }
+
+div.unactivated, .unactivated {
+  display: none
+}
+
+a {
+  color: #3ca2c9;
+}

@@ -1,0 +1,7 @@
+%h1 Questions#index
+%p Find me in app/views/questions/index.html.haml
+- numQuestions = @question_set.questions.length
+%p= 'This question set has ' + numQuestions.to_s + ' questions'
+- @question_set.questions.each do |question|
+  %p
+    = link_to 'question ' + question.position.to_s, question

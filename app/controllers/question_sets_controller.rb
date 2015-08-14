@@ -20,6 +20,7 @@ class QuestionSetsController < ApplicationController
   # GET /question_sets/1
   # GET /question_sets/1.json
   def show
+    authenticate_user!
   end
 
   # GET /question_sets/new

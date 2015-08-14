@@ -1,5 +1,22 @@
 Rails.application.routes.draw do
-  resources :question_sets
+  get 'questions/index'
+
+  get 'questions/show'
+
+  get 'questions/new'
+
+  get 'questions/create'
+
+  get 'questions/edit'
+
+  get 'questions/update'
+
+  get 'questions/destroy'
+
+  resources :question_sets do
+    resources :questions, :shallow => true
+  end
+
   get 'public_sets' => 'question_sets#public'
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

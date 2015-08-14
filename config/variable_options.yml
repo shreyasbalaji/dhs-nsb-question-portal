@@ -1,0 +1,14 @@
+# options for question model fields
+
+class:
+  - MC
+  - FR
+
+subject:
+  - Biology
+  - Chemistry
+  - Physics
+  - Math
+  - Earth/Space Science
+  - Energy
+

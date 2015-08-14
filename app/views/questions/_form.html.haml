@@ -1,0 +1,119 @@
+= form_for [@question_set, @question] do |f|
+  - if @question.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@question.errors.count, "error")} prohibited the question from saving"
+      %ul
+        - @question.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.hidden_field :toss_up_text
+  = f.hidden_field :toss_up_answer
+  = f.hidden_field :bonus_text
+  = f.hidden_field :bonus_answer
+
+  .row
+    .small-6.columns
+      .field
+        = f.label :subject
+        = f.select :subject, VARIABLE_OPTIONS['subject']
+    .small-6.columns
+      .field
+        = f.label :toss_up_class
+        = f.select :toss_up_class, VARIABLE_OPTIONS['class']
+  #toss_up_mc
+    %h2 Toss Up
+    %label{for: 'tmctext'} Toss Up Question Body
+    %textarea#tmctext
+    <br />
+    %label Answer Choices
+    .mcchoices
+      .row
+        .small-1.columns
+          %label.right{for: 'tc1'} W
+        .small-11.columns
+          %input#tc1{type: 'text'}
+      .row
+        .small-1.columns
+          %label.right{for: 'tc2'} X
+        .small-11.columns
+          %input#tc2{type: 'text'}
+      .row
+        .small-1.columns
+          %label.right{for: 'tc3'} Y
+        .small-11.columns
+          %input#tc3{type: 'text'}
+      .row
+        .small-1.columns
+          %label.right{for: 'tc4'} Z
+        .small-11.columns
+          %input#tc4{type: 'text'}
+      %label{for: 'tmcanswer'} Toss Up Answer
+      %select#tmcanswer
+        %option{value: 'W'} W
+        %option{value: 'X'} X
+        %option{value: 'Y'} Y
+        %option{value: 'Z'} Z
+
+  #toss_up_fr.unactivated
+    %h2 Toss Up
+    %label{for: 'tfrtext'} Toss Up Question Body
+    %textarea#tfrtext
+    %label{for: 'tfranswer'} Toss Up Answer
+    %input#tfranswer{type: 'text'}
+
+  %hr
+  %br
+
+  %h2 Bonus
+  .field
+    = f.label :bonus_class
+    = f.select :bonus_class, VARIABLE_OPTIONS['class']
+
+  #bonus_mc
+    %label{for: 'bmctext'} Bonus Question Body
+    %textarea#bmctext
+    <br />
+    %label Answer Choices
+    .mcchoices
+      .row
+        .small-1.columns
+          %label.right{for: 'bc1'} W
+        .small-11.columns
+          %input#bc1{type: 'text'}
+      .row
+        .small-1.columns
+          %label.right{for: 'bc2'} X
+        .small-11.columns
+          %input#bc2{type: 'text'}
+      .row
+        .small-1.columns
+          %label.right{for: 'bc3'} Y
+        .small-11.columns
+          %input#bc3{type: 'text'}
+      .row
+        .small-1.columns
+          %label.right{for: 'bc4'} Z
+        .small-11.columns
+          %input#bc4{type: 'text'}
+      %label{for: 'bmcanswer'} Bonus Answer
+      %select#bmcanswer
+        %option{value: 'W'} W
+        %option{value: 'X'} X
+        %option{value: 'Y'} Y
+        %option{value: 'Z'} Z
+
+  #bonus_fr.unactivated
+    %label{for: 'bfrtext'} Bonus Question Body
+    %textarea#bfrtext
+    %label{for: 'bfranswer'} Bonus Answer
+    %input#bfranswer{type: 'text'}
+
+  %br
+  .field
+    = f.label :references
+    = f.text_area :references
+
+  .actions
+    = f.submit 'Save', :class => 'button round expand'
+
+
