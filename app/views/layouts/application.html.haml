@@ -4,7 +4,7 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:charset => "utf-8"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    %title= content_for?(:title) ? yield(:title) : "foundation-rails"
+    %title= content_for?(:title) ? yield(:title) : "DHS-NHS Question Portal"
     = google_webfonts_init({:google => ['Lato', 'Open Sans']})
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
@@ -16,7 +16,7 @@
         %li.name
           %h1
             %a{:href => "/"}
-              %strong NSB
+              %strong DHS-NSB
       %li.toggle-topbar.menu-icon
         %a{:href => "#"}
           %span Menu
