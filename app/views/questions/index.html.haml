@@ -11,5 +11,6 @@
   - @question_set.questions.each do |question|
     %li= link_to question.position.to_s, question
 
-%form{method: 'get', action: new_question_set_question_path(@question_set)}
-  %button.button.small{type: 'submit'} New Question
+- if current_user.email == @question_set.user.email || current_user.admin
+  %form{method: 'get', action: new_question_set_question_path(@question_set)}
+    %button.button.small{type: 'submit'} New Question

@@ -92,15 +92,17 @@
 %h2 References
 %p= @question.references
 %hr
-.row
-  .small-2.columns
-  .small-4.columns
-    %form{method: 'get', action: edit_question_path(@question)}
-      %button.button.small{type: 'submit'} Edit This Question
-  .small-4.columns
-    %form{method: 'get', action: new_question_set_question_path(@question.question_set)}
-      %button.button.small{type:'submit'} New Question
-  .small-2.columns
+
+- if current_user.email == @question.question_set.user.email || current_user.admin
+  .row
+    .small-2.columns
+    .small-4.columns
+      %form{method: 'get', action: edit_question_path(@question)}
+        %button.button.small{type: 'submit'} Edit This Question
+    .small-4.columns
+      %form{method: 'get', action: new_question_set_question_path(@question.question_set)}
+        %button.button.small{type:'submit'} New Question
+    .small-2.columns
 
 
 
