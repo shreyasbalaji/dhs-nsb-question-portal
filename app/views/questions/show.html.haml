@@ -20,7 +20,7 @@
   .small-10.columns
     %h2 Toss Up
   .small-2.columns
-    %h2#tossUpCountdown.countdown 5
+    %h2#tossUpCountdown.countdown.has-tip{title: 'Click to start'} 5
 %p
   %strong
     = @question.subject 
@@ -57,7 +57,7 @@
   .small-10.columns
     %h2 Bonus
   .small-2.columns
-    %h2#bonusCountdown.countdown 20
+    %h2#bonusCountdown.countdown.has-tip{title: 'Click to start'} 20
 %p
   %strong 
     = @question.subject 

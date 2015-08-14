@@ -12,5 +12,8 @@
   .field
     = f.label :description
     = f.text_area :description
+  - if current_user.admin
+    = f.label :public
+    = f.check_box :public
   .actions
     = f.submit 'Save', :class => 'button round expand'

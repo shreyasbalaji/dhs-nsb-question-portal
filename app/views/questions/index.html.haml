@@ -1,7 +1,15 @@
-%h1 Questions#index
-%p Find me in app/views/questions/index.html.haml
+%ul.breadcrumbs
+  %li= link_to 'Home', root_path
+  %li= link_to 'My Question Sets', question_sets_path
+  %li= link_to @question_set.name, @question_set
+  %li.current= link_to 'Question List', question_set_questions_path(@question_set)
+%h1= 'Questions Index for ' + @question_set.name
 - numQuestions = @question_set.questions.length
 %p= 'This question set has ' + numQuestions.to_s + ' questions'
-- @question_set.questions.each do |question|
-  %p
-    = link_to 'question ' + question.position.to_s, question
+%h4 Questions
+%ul.pagination
+  - @question_set.questions.each do |question|
+    %li= link_to question.position.to_s, question
+
+%form{method: 'get', action: new_question_set_question_path(@question_set)}
+  %button.button.small{type: 'submit'} New Question

@@ -8,7 +8,9 @@ gem 'foundation-rails', '~> 5.5.2.1'
 gem 'haml-rails', '~> 0.9'
 gem 'devise', '~> 3.5.2'
 gem 'jquery-turbolinks'
-# Use sqlite3 as the database for Active Record
+gem 'google-webfonts-rails'
+
+# Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

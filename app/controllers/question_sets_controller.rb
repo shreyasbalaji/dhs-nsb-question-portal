@@ -21,6 +21,7 @@ class QuestionSetsController < ApplicationController
   # GET /question_sets/1.json
   def show
     authenticate_user!
+    check_has_access!
   end
 
   # GET /question_sets/new
@@ -32,6 +33,7 @@ class QuestionSetsController < ApplicationController
   # GET /question_sets/1/edit
   def edit
     authenticate_user!
+    check_has_access!
   end
 
   # POST /question_sets
@@ -90,6 +92,16 @@ class QuestionSetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_set_params
-      params.require(:question_set).permit(:name, :description)
+      if current_user.admin
+        params.require(:question_set).permit(:name, :description, :public)
+      else
+        params.require(:question_set).permit(:name, :description)
+      end
+    end
+
+    def check_has_access!
+      if !current_user.admin && current_user.email != @question_set.user.email && !@question_set.public
+        redirect_to question_sets_url, alert: "You don't have permission to access that"
+      end
     end
 end
