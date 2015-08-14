@@ -7,7 +7,7 @@
   %thead
     %tr
       %th Name
-      %th Description
+      %th Owner
       %th
       %th
       %th
@@ -16,7 +16,7 @@
     - @question_sets.each do |question_set|
       %tr
         %td= question_set.name
-        %td= question_set.description
+        %td= question_set.user.name
         %td= link_to 'Show', question_set
 
 %br
