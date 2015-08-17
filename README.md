@@ -1,4 +1,5 @@
-== Dulles Science Bowl Question Portal
+Dulles Science Bowl Question Portal
+========
 
 This application powers the question portal Dulles Science Bowl
 uses to manage user-contributed questions. It runs on the [Ruby on Rails
