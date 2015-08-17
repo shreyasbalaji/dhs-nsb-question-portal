@@ -9,6 +9,8 @@ gem 'haml-rails', '~> 0.9'
 gem 'devise', '~> 3.5.2'
 gem 'jquery-turbolinks'
 gem 'google-webfonts-rails'
+gem 'puma'
+gem 'rack-timeout'
 
 # Use postgresql as the database for Active Record
 gem 'pg'

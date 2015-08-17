@@ -105,9 +105,11 @@ GEM
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     pg (0.18.2)
+    puma (2.13.4)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
+    rack-timeout (0.2.4)
     rails (4.2.3)
       actionmailer (= 4.2.3)
       actionpack (= 4.2.3)
@@ -193,6 +195,8 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   pg
+  puma
+  rack-timeout
   rails (= 4.2.3)
   rails_12factor
   sass-rails (~> 5.0)
