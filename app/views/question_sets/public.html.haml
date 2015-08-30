@@ -10,7 +10,6 @@
       %th Owner
       %th
       %th
-      %th
 
   %tbody
     - @question_sets.each do |question_set|
@@ -18,6 +17,7 @@
         %td= question_set.name
         %td= question_set.user.name
         %td= link_to 'Show', question_set
+        %td= link_to 'View Questions', question_set_questions_path(question_set)
 
 %br
 

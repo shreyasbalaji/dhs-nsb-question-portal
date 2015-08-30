@@ -33,12 +33,14 @@ Multiple choice questions all consist of a question body and 4 answer choices: W
 > Which of the following operations on angular velocity and the circular radius equates to the tangential velocity along a circle at that radius?
 
 the answer choices should be:
+
 > * Angular velocity plus the radius
 > * Angular velocity minus the radius
 > * Angular velocity times the radius
 > * Angular velocity divided by the radius
 
 and not:
+
 > * Angular velocity plus the radius
 > * The angular velocity minus the radius
 > * Radius times the angular velocity
@@ -53,7 +55,7 @@ When submitting (bi-)weekly sets, please create a new question set for each meet
 
 For example, if you are submitting your weekly set for the September 10th 2015 meeting, title your set "Weekly Set 09/10/15." You don't have to include your name in the title, as long as you filled in your name correctly when signing up. 
 
-If you signed up using an alias or didn't include both your First and Last name when signing up, please contact us immediately at <dullessciencebowl@gmail>; otherwise, we will not be able to give you credit for your questions.
+If you signed up using an alias or didn't include both your First and Last name when signing up, please contact us immediately at dullessciencebowl@gmail; otherwise, we will not be able to give you credit for your questions.
 
 Each question set should consist of five or more questions. Try to have one Biology, Chemistry, Physics, and Math question, with the last question either Earth/Space Science or Energy. You should randomize the order subjects appear in your question set.
 

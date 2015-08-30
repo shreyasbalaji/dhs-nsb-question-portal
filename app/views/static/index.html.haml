@@ -4,3 +4,6 @@
   %p This is our main portal for viewing, editing, and submitting practice Science Bowl Questions.
   %p 
     %a{href: 'http://dullesnsb.weebly.com'} Visit our main site
+
+- if user_signed_in?
+  %h4 Kindly read the <a href="/guidelines">guidelines</a> before <a href="http://localhost:3000/question_sets/new">creating question sets</a>.
