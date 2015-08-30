@@ -9,6 +9,7 @@
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
     = javascript_include_tag "application", 'data-turbolinks-track' => true
+    = yield :more_head
     = csrf_meta_tags
   %body
     %nav.top-bar{"data-topbar" => "", :role => "navigation"}

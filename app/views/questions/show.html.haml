@@ -1,3 +1,5 @@
+- content_for :more_head do
+  = javascript_include_tag 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
 %ul.breadcrumbs
   %li= link_to 'Home', root_path
   %li= link_to 'My Question Sets', question_sets_path
