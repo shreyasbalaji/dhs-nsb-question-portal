@@ -1,5 +1,22 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+var loadMathJax;
+
+$(function() {
+  loadMathJax();
+  return $(document).on('page:load', loadMathJax);
+});
+
+loadMathJax = function() {
+  window.MathJax = null;
+  return $.getScript("http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML", function() {
+    return MathJax.Hub.Config({
+      showMathMenu: false,
+      jax: ["input/TeX","output/HTML-CSS"],
+      displayAlign: "left"
+    });
+  });
+};
 
 function submitQuestionHandler(event) {
   var t_mc = (($("#question_toss_up_class").val()) == "MC");
@@ -201,10 +218,6 @@ $(document).ready(function() {
   if ($('#tossUpCountdown').length) {
     $('#tossUpCountdown').click(startTossUpTimer);
     $('#bonusCountdown').click(startBonusTimer);
-    MathJax.Hub.Config({
-        jax: ["input/TeX","output/HTML-CSS"],
-        displayAlign: "left"
-    });
   }
 });
 
