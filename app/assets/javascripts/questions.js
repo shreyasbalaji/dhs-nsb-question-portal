@@ -201,6 +201,10 @@ $(document).ready(function() {
   if ($('#tossUpCountdown').length) {
     $('#tossUpCountdown').click(startTossUpTimer);
     $('#bonusCountdown').click(startBonusTimer);
+    MathJax.Hub.Config({
+        jax: ["input/TeX","output/HTML-CSS"],
+        displayAlign: "left"
+    });
   }
 });
 
